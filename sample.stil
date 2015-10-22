@@ -1,0 +1,30 @@
+Signals {
+	underrun	IN;
+	empty	IN;
+	tx_en	IN;
+	rx_en	IN;
+	en	IN;
+	data_valid	IN;
+	data_0	OUT;
+	data_1	OUT;
+	data_2	OUT;
+	data_3	OUT;
+	data_4	OUT;
+	data_5	OUT;
+	data_6	OUT;
+	data_7	OUT;
+}
+
+SignalGroups {
+	data	'data_7 + data_6 + data_5 + data_4 + data_3 + data_2 + data_1 + data_0';
+	ALL_PINS	'underrun + empty + tx_en + rx_en + en + data_valid + data';
+}
+
+Pattern {
+	W your_timing;
+	Loop 22 {
+		V { ALL_PINS = 001010HLLLLLLH ; }
+	}
+	V { ALL_PINS = 000010HLLLLLLH ; }
+	V { ALL_PINS = 0000110000000L ; }
+}

@@ -1,0 +1,20 @@
+# This is a sample pin file.
+# All lines that begin with a # is a comment.
+# All signals on the vcd SHOULD be define here, and the width should match the witch on the vcd too. 
+# The format is as follows:
+# Pin_name	Width	Direction
+
+underrun        1       IN
+empty           1       IN
+tx_en           1       IN
+rx_en           1       IN
+en              1       IN
+data_valid      1       IN
+data            8       OUT
+
+
+
+
+
+
+
